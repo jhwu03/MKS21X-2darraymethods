@@ -25,4 +25,18 @@ public class ArrayMethods{
     }
     return ans;
   }
+  public static int[] allColSums(int[][] ary){
+    int max = 0;
+    for (int i = 0; i < ary.length; i= i + 1){
+      if (ary[i].length > max){
+         max = ary[i].length;
+    }
+  }
+    int[] ans = new int[max];
+    for (int i = 0; i < ary.length; i = i + 1) {
+    ans[i] = columnSum(ary, i);
+  }
+  return ans;
+}
+
 }
