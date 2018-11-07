@@ -9,4 +9,20 @@ public class ArrayMethods{
     }
     return ans;
   }
+  public static int columnSum(int[][] ary, int n){
+    int ans = 0;
+    for (int i = 0; i < ary.length; i = i + 1) {
+    if (i < ary[i].length) {
+      ans = ans + ary[i][n];
+    }
+  }
+  return ans;
+}
+  public static int[] allRowSums(int[][] ary){
+    int[] ans = new int[ary.length];
+    for (int i = 0; i < ary.length; i = i + 1) {
+      ans[i] = rowSum(ary, i);
+    }
+    return ans;
+  }
 }
