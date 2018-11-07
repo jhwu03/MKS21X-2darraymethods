@@ -12,12 +12,13 @@ public class ArrayMethods{
   public static int columnSum(int[][] ary, int n){
     int ans = 0;
     for (int i = 0; i < ary.length; i = i + 1) {
-    if (i < ary[i].length) {
+    if (ary[i].length > n) {
       ans = ans + ary[i][n];
     }
   }
   return ans;
 }
+
   public static int[] allRowSums(int[][] ary){
     int[] ans = new int[ary.length];
     for (int i = 0; i < ary.length; i = i + 1) {
@@ -33,10 +34,32 @@ public class ArrayMethods{
     }
   }
     int[] ans = new int[max];
-    for (int i = 0; i < ary.length; i = i + 1) {
+    for (int i = 0; i < max; i = i + 1) {
     ans[i] = columnSum(ary, i);
   }
   return ans;
 }
+  public static boolean isRowMagic(int[][] ary){
+    int[] rowSums = allRowSums(ary);
+    boolean same = false;
+    for(int i = 0; i < rowSums.length - 1; i = i + 1){
+       if(rowSums[i] == rowSums[i+1]){
+         same = true;
+       }else{
+         same = false;
+       }
+     } return same;
+   }
+   public static boolean isColumnMagic(int[][] ary){
+     int[] colSums = allColSums(ary);
+     boolean same = false;
+     for(int i = 0; i < colSums.length - 1; i = i + 1){
+        if(colSums[i] == colSums[i+1]){
+          same = true;
+        }else{
+          same = false;
+        }
+      } return same;
+    }
 
 }
